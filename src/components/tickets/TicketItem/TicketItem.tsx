@@ -9,11 +9,15 @@ type TicketProp = {
 
 interface Props {
   ticket: TicketProp;
+  onBuy: () => void;
 }
 
-const TicketItem: React.FC<Props> = ({ ticket }) => (
+const TicketItem: React.FC<Props> = ({ ticket, onBuy }) => (
   <div style={{ marginBottom: 20 }} data-testid='ticket-item'>
     <Ticket price={ticket.price} from={ticket.from} to={ticket.to} />
+    <button type='button' onClick={onBuy} data-testid='buy-button'>
+      Buy
+    </button>
   </div>
 );
 
